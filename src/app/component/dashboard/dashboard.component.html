@@ -1,0 +1,36 @@
+<div class="card">
+    <div class="card-header">
+        <h4 class="card-title">
+            Dashboard
+        </h4>
+    </div>
+    <div class="card-body">
+
+        <div *ngIf="isLoading">
+            <app-spinner></app-spinner>
+        </div>
+
+        <table *ngIf="!isLoading" class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th class="text-nowrap">
+                        Sr. No
+                    </th>
+                    <th>
+                        Title
+                    </th>
+                    <th>
+                        Body
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of todos">
+                    <td>{{item.id}}</td>
+                    <td>{{item.title | truncate: 2}}</td>
+                    <td>{{item.body | truncate: 2}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
